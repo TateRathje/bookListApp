@@ -14,6 +14,31 @@ angular.module('readingList', [])
       restrict: 'E',
       templateUrl: 'partials/book-genres.html'
     }
+  })
+
+  .directive('bookCover', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/book-cover.html',
+      replace: true
+    }
+  })
+
+  .directive('reviewForm', function(){
+    return {
+      restrict: 'E',
+      templateUrl: 'partials/review-form.html',
+      replace: true,
+      controller: function(){
+        this.showForm = false;
+        this.book = {};
+      },
+      controllerAs: 'reviewFormCtrl',
+      scope: {
+        books: "=",
+        genres: "="
+      }
+    }
   });
 
 	
